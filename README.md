@@ -14,11 +14,12 @@
 <!-- GIF -->
 <img align="center" height="400" width="800" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/Secure%20Payment.png" />
 <!-- Header Section -->
-<h1 align="center"><font face="Arial"></font></h1>
+<h1 align="center"><font face="Arial">Payment-Security</font></h1>
+<h4 align="left"><font face="Arial">Payment security protects financial transactions and sensitive data from unauthorized access, fraud, and cyber threats through encryption, authentication, and compliance with security standards. It ensures that payments are processed safely and securely.</font></h4>
 
 
 
-# Payment-Security
-Payment security involves protecting financial transactions and sensitive data from unauthorized access, fraud, and cyber threats through encryption, authentication, and compliance with security standards. It ensures that payments are processed safely and securely.
+# 
+Payment security protects financial transactions and sensitive data from unauthorized access, fraud, and cyber threats through encryption, authentication, and compliance with security standards. It ensures that payments are processed safely and securely.
 
 
