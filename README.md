@@ -27,7 +27,7 @@ Three computer systems are involved whenever a customer makes a card/online purc
 
 **The payment service provider (PSP):** A Visa Europe listed validated PCI DSS compliant company that receives the cardholder data and submits it to the payment system. <br>
 
-<h3 align="left"><font face="Arial">The key steps involved in payment:</font></h3>
+<h3 align="left"><font face="Arial">The key steps involved in payment;</font></h3>
 
 **Step 1:** CREATE the payment form to collect the customer’s card data and SEND the payment form to the customer's computer. This can be done by the merchant website, or by the PSP website. <br>
 
