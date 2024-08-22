@@ -37,3 +37,17 @@ Three computer systems are involved whenever a customer makes a card/online purc
 
 
 
+
+
+
+<h3 align="left"><font face="Arial">Payment Gateway Integration Methods;</font></h3>
+
+There are several different ways that applications can integrate payment functionality, and the testing approach will vary depending on which one is used. The most common methods are; <br>
+
+1) Redirecting the user to a third-party payment gateway.
+2) Loading a third-party payment gateway in an IFRAME on the application.
+3) The Direct Post: Accepting the card details directly, and then making a POST from the application backend to the payment gateway’s API.
+4) The JavaScript-created form: 
+
+
+
