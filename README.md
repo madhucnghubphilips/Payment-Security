@@ -1,7 +1,7 @@
 ![](https://img.shields.io/badge/Threat%20Model-STRIDE,%20IriusRisk-yellow)
 ![platform](https://img.shields.io/badge/Proxy-OWASP%20ZAP,%20Burpsuite-green)
 ![platform](https://img.shields.io/badge/PCI-DSS-blue)
-![platform](https://img.shields.io/badge/Platform-Xcode-purple)
+![platform](https://img.shields.io/badge/Payment-Gateway-purple)
 ![platform](https://img.shields.io/badge/EKS-kubescape,%20kubebench-orange)
 ![platform](https://img.shields.io/badge/SAST-Fortify,%20Coverity,%20BlackDuck,%20GitSec,%20Checkov-orange)
 ![Infrascan](https://img.shields.io/badge/InfraScan-Nessus-orange)
