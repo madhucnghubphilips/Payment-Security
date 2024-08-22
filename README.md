@@ -12,9 +12,9 @@
 ![NodeJS](https://img.shields.io/badge/NodeJS-blue.svg?logo=Node.JS&labelColor=orange) 
 
 <!-- GIF -->
-<img align="center" height="300" width="500" src="https://github.com/madhucnghubphilips/Open-Source-Components-Usage/blob/main/Resource/coder3.gif" />
+<img align="center" height="400" width="800" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/Secure%20Payment.png" />
 <!-- Header Section -->
-<h1 align="center"><font face="Arial">Open-Source Components </font></h1>
+<h1 align="center"><font face="Arial"></font></h1>
 
 
 
