@@ -44,10 +44,15 @@ Three computer systems are involved whenever a customer makes a card/online purc
 
 There are several different ways that applications can integrate payment functionality, and the testing approach will vary depending on which one is used. The most common methods are; <br>
 
-1) Redirecting the user to a third-party payment gateway.
-2) Loading a third-party payment gateway in an IFRAME on the application.
-3) The Direct Post: Accepting the card details directly, and then making a POST from the application backend to the payment gateway’s API.
-4) The JavaScript-created form: 
+1) Redirecting the user to a third-party payment gateway. <br>
+   <img align="center" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/1%20The%20Redirect%20Process.JPG" /> <br>
+2) Loading a third-party payment gateway in an IFRAME on the application. <br>
+   <img align="center" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/2%20The%20IFRAME.JPG" /> <br>
+3) The Direct Post: Accepting the card details directly, and then making a POST from the application backend to the payment gateway’s API. <br>
+   <img align="center" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/3%20The%20Direct%20Post.JPG" /> <br>
+4) The JavaScript-created form: <br>
+   <img align="center" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/4%20The%20JavaScript%20Created%20Form.JPG" /> <br>
+
 
 
 
