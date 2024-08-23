@@ -275,3 +275,49 @@ It may also be possible to skip the entire payment process for the transaction. 
 Merchants normally have to pay fees for every transaction processed, which are typically made up of a small fixed fee, and a percentage of the total value. This means that receiving very small payments (such as $0.01) may result in the merchant actually losing money, as the transaction processing fees are greater than the total value of the transaction.<br>
 
 This issue is rarely exploitable on e-commerce sites, as the price of the cheapest item is usually high enough to prevent it. However, if the site allows customers to make payments with arbitrary amounts (such as donations), check that it enforces a sensible minimum value.<br>
+
+
+
+
+
+
+## <h2 align="left"><font face="Arial">11) Usage of Tokenization for payment security</font></h2> 
+Tokenization in payment data is a security technique used to protect sensitive payment information, such as credit card numbers, by replacing it with a unique identifier known as a "token." This token has no exploitable value if breached, as it cannot be used outside the specific context for which it was created. The original payment information is securely stored in a tokenization vault, and only authorized systems can map the token back to the original data.<br>
+
+## Step-by-Step Example of Tokenization
+
+**Customer Enters Payment Information:**
+```python
+Customer visits an e-commerce website and enters her credit card information:
+Card Number: 4111 1111 1111 1111
+Expiration Date: 12/24
+CVV: 123
+```
+
+**Payment Information Sent to Tokenization Service:**
+* Instead of storing Customer's credit card information directly, the e-commerce website sends her payment details to a tokenization service provider or payment processor.
+
+**Token Generation:**
+* The tokenization service receives Customer's payment data and generates a unique token. For example, the service might create the following token:
+* Token: f8e1c9ab7d334f4dbdf1a1c7f8f5e2ab
+* This token is a random string and does not reveal any of Customer's actual credit card details.
+
+**Token Returned to the Merchant:**
+* The tokenization service returns the token f8e1c9ab7d334f4dbdf1a1c7f8f5e2ab to the e-commerce website, where it is stored in place of Customer's original credit card number.
+
+**Token Used for Transactions:**
+* The e-commerce website uses the token to process the transaction. The token is sent to the payment processor, which maps the token back to the original credit card information stored in the secure tokenization vault.
+* The payment processor completes the transaction by charging Customer's actual credit card.
+
+**Future Transactions:**
+* If Customer returns to the e-commerce website to make another purchase, the website can use the stored token to process the payment without asking for Customer's credit card information again.
+* Customer's original credit card details are never exposed during the transaction.
+
+**Security in Case of  Breach:**
+* If the e-commerce website's database is breached and the tokens are stolen, the attackers would only have the tokens (f8e1c9ab7d334f4dbdf1a1c7f8f5e2ab), which are useless outside the context of the tokenization service. The original credit card details are securely stored elsewhere and are not compromised.
+
+**Benefits of Tokenization:**
+* Enhanced Security: Reduces the risk of sensitive payment data being exposed in the event of a data breach.
+* Compliance: Helps businesses comply with industry regulations, such as PCI DSS, by minimizing the scope of systems that handle sensitive data.
+* Reduced Risk: If tokens are stolen, they are useless to attackers, as they cannot be reverse-engineered to retrieve the original payment information.
+* Flexibility: Tokens can be used across different systems and processes without exposing the original sensitive data.
