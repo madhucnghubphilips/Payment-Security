@@ -143,3 +143,32 @@ Different types of items may have different validation rules, so each type needs
 * Integrity Checks: Verifying that data has not been altered during transmission.
 * Tokenization: Replacing sensitive data with a secure token that cannot be tampered with.
 * Secure Coding Practices: Implementing strong validation and security controls within the payment gateway to detect and prevent unauthorized modifications.
+
+
+
+
+
+
+
+
+
+
+## <h2 align="left"><font face="Arial">4) Tampering Encrypted Transaction Details</font></h2> 
+In order to prevent the transaction being tampered with, some payment gateways will encrypt the details of the request that is made to them. For example, PayPal does this using public key cryptography.
+The first thing to try is making an unencrypted request, as some payment gateways allow insecure transactions unless they have been specifically configured to reject them.<br>
+If this doesn’t work, then you need to find the public key that is used to encrypt the transaction details, which could be exposed in a backup of the application, or if you can find a directory traversal vulnerability.
+Alternatively, it’s possible that the application re-uses the same public/private key pair for the payment gateway and its digital certificate. You can obtain the public key from the server with the following command:<br>
+
+```python
+echo -e '\0' | openssl s_client -connect example.org:443 2>/dev/null | openssl x509 -pubkey -noout
+```
+Once you have this key, you can then try and create an encrypted request (based on the payment gateway’s documentation), and submit it to the gateway to see if it’s accepted.<br>
+
+**Mitigation Strategies** <br>
+* Strong Encryption Protocols: Use strong, up-to-date encryption protocols (e.g., AES-256).
+* Secure Key Management: Ensure keys are generated, stored, and rotated securely.
+* Message Integrity Checks: Implement message authentication codes (MACs) or digital signatures to ensure the integrity and authenticity of the transaction data.
+* End-to-End Encryption: Ensure that the encryption is maintained throughout the entire transaction process, from the client to the payment gateway, without any breaks.
+* Tamper-Detection Mechanisms: Incorporate tamper detection methods in the payment gateway that can identify and reject altered encrypted data.
+
+
