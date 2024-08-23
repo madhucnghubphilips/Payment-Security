@@ -17,10 +17,10 @@
 <h1 align="center"><font face="Arial">Payment-Security</font></h1>
 <h3 align="left"><font face="Arial">Payment security protects financial transactions and sensitive data from unauthorized access, fraud, and cyber threats through encryption, authentication, and compliance with security standards. It ensures that payments are processed safely and securely.</font></h3>
 
-<h3 align="left"><font face="Arial">The payment systems involves;</font></h3>
+<h3 align="left"><font face="Arial">The payment systems involves;</font></h3> 
 Three computer systems are involved whenever a customer makes a card/online purchase online. <br>
 
-**The merchant website**
+**The merchant website** 
 Contains the product catalogue and shopping cart. Always starts the process to collect the customer’s cardholder data when the customer asks to checkout. <br>
 **The customer computer:**
 Running a web browser such as Firefox, Chrome or Internet Explorer. <br>
