@@ -20,12 +20,12 @@
 <h3 align="left"><font face="Arial">The payment systems involves;</font></h3>
 
 Three computer systems are involved whenever a customer makes a card/online purchase online. <br>
-
-**The merchant website:** Contains the product catalogue and shopping cart. Always starts the process to collect the customer’s cardholder data when the customer asks to checkout. <br>
-
-**The customer computer:** Running a web browser such as Firefox, Chrome or Internet Explorer. <br>
-
-**The payment service provider (PSP):** A Visa Europe listed validated PCI DSS compliant company that receives the cardholder data and submits it to the payment system. <br>
+<h3 align="left"><font face="Arial">The merchant website</font></h3>
+Contains the product catalogue and shopping cart. Always starts the process to collect the customer’s cardholder data when the customer asks to checkout. <br>
+<h3 align="left"><font face="Arial">The customer computer:</font></h3>
+Running a web browser such as Firefox, Chrome or Internet Explorer. <br>
+<h3 align="left"><font face="Arial">The payment service provider (PSP):</font></h3>
+A Visa Europe listed validated PCI DSS compliant company that receives the cardholder data and submits it to the payment system. <br>
 
 <h3 align="left"><font face="Arial">The key steps involved in payment;</font></h3>
 
