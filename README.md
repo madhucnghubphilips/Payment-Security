@@ -54,10 +54,10 @@ There are several different ways that applications can integrate payment functio
 Quantity tampering in payment security refers to the manipulation of the quantity field in a transaction to alter the number of items or units being purchased. This can result in undercharging or overcharging for a transaction. 
 For example, the quantity should normally be a positive integer, but if the site does not properly validate this then it may be possible to specify a decimal quantity of an item (such as 0.1), or a negative quantity (such as -1). If malicious actor might tamper with the quantity value before a payment is processed, depending on the backend processing, adding negative quantities of an item may result in a negative value, reducing the overall cost of the basket.<br>
 **There are usually multiple ways to modify the contents of the basket that should be tested, such as:** <br>
-Adding a negative quantity of an item.<br>
-Repeatedly removing items until the quantity is negative.<br>
-Updating the quantity to a negative value.<br>
-Some sites may also provide a drop-down menu of valid quantities (such as items that must be bought in packs of 10), and it may be possible to tamper these requests to add other quantities of items.<br>
+* Adding a negative quantity of an item.<br>
+* Repeatedly removing items until the quantity is negative.<br>
+* Updating the quantity to a negative value.<br>
+* Some sites may also provide a drop-down menu of valid quantities (such as items that must be bought in packs of 10), and it may be possible to tamper these requests to add other quantities of items.<br>
 
 If the full basket details are passed to the payment gateway (rather than simply passing a total value), it may also be possible to tamper the values at that stage.<br>
 
@@ -68,10 +68,9 @@ POST /api/basket/add
 Host: example.org
 
 item_id=1&quantity=5&quantity=4
-
 ```
 **Mitigation Strategies** <br>
-Input Validation: Ensure that all quantity fields are validated on the server side.<br>
-Security Controls: Implement checks that compare the quantity requested with inventory levels and expected transaction patterns.<br>
-Audit Logs: Maintain detailed logs of all transactions for post-incident investigation and detection of anomalies.<br>
+* Input Validation: Ensure that all quantity fields are validated on the server side.<br>
+* Security Controls: Implement checks that compare the quantity requested with inventory levels and expected transaction patterns.<br>
+* Audit Logs: Maintain detailed logs of all transactions for post-incident investigation and detection of anomalies.<br>
 
