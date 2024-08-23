@@ -70,5 +70,8 @@ Host: example.org
 item_id=1&quantity=5&quantity=4
 
 ```
-
+**Mitigation Strategies** <br>
+Input Validation: Ensure that all quantity fields are validated on the server side.<br>
+Security Controls: Implement checks that compare the quantity requested with inventory levels and expected transaction patterns.<br>
+Audit Logs: Maintain detailed logs of all transactions for post-incident investigation and detection of anomalies.<br>
 
