@@ -74,6 +74,11 @@ item_id=1&quantity=5&quantity=4
 * Security Controls: Implement checks that compare the quantity requested with inventory levels and expected transaction patterns.<br>
 * Audit Logs: Maintain detailed logs of all transactions for post-incident investigation and detection of anomalies.<br>
 
+
+
+
+
+
 ## <h2 align="left"><font face="Arial">2) Price tampering</font></h2> 
 Price tampering in payment security involves the unauthorized manipulation of the price value during a transaction. This can happen when a user intercepts and alters the data being sent from a client to a server, reducing the price of an item or service before the payment is processed. This type of attack can lead to significant financial losses for merchants.<br>
 
@@ -98,3 +103,43 @@ Different types of items may have different validation rules, so each type needs
 * Server-Side Validation: Always validate prices on the server side before processing payments.
 * Use Secure Communication: Implement HTTPS and secure APIs to prevent data interception.
 * Integrity Checks: Use cryptographic techniques to ensure the integrity of the data sent between the client and server.
+
+
+
+
+
+
+## <h2 align="left"><font face="Arial">3) Tampering at Payment Gateway</font></h2> 
+payment gateway tampering refers to malicious activities where attackers manipulate or interfere with the data processed by a payment gateway. This could involve altering payment amounts, intercepting sensitive transaction data like credit card details, or redirecting payments to fraudulent accounts.<br>
+The transfer to the gateway may be performed using a cross-domain POST to the gateway, as shown in the HTML example below.
+Note: The card details are not included in this request - the user will be prompted for them on the payment gateway:<br>
+
+For example, When adding an item to the basket, the application should only include the item and a quantity, such as the example request below:
+
+```python
+<form action="https://example.org/process_payment" method="POST">
+	<input type="hidden" id="merchant_id" value="123" />
+	<input type="hidden" id="basket_id" value="456" />
+	<input type="hidden" id="item_id" value="1" />
+	<input type="hidden" id="item_quantity" value="5" />
+	<input type="hidden" id="item_total" value="20.00" />
+	<input type="hidden" id="shipping_total" value="2.00" />
+	<input type="hidden" id="basket_total" value="22.00" />
+	<input type="hidden" id="currency" value="GBP" />
+	<input type="submit" id="submit" value="submit" />
+</form>
+```
+By modifying the HTML form or intercepting the POST request, it may be possible to modify the prices of items, and to effectively purchase them for less. Note that many payment gateways will reject a transaction with a value of zero, so a total of 0.01 is more likely to succeed. However, some payment gateways may accept negative values (used to process refunds). Where there are multiple values (such as item prices, a shipping cost, and the total basket cost), all of these should be tested.<br>
+
+If the payment gateway uses an IFRAME instead, it may be possible to perform a similar type of attack by modifying the IFRAME URL:
+
+```python
+<iframe src="https://example.org/payment_iframe?merchant_id=123&basket_total=22.00" />
+```
+Different types of items may have different validation rules, so each type needs to be separately tested. Some applications also allow users to add an optional donation to charity as part of their purchase, and this donation can usually be an arbitrary amount. If this amount is not validated, it may be possible to add a negative donation amount, which would then reduce the total value of the basket. <br>
+
+**Mitigation Strategies** <br>
+* Encryption: Ensuring all data transmitted between the user and the payment gateway is encrypted (e.g., using SSL/TLS).
+* Integrity Checks: Verifying that data has not been altered during transmission.
+* Tokenization: Replacing sensitive data with a secure token that cannot be tampered with.
+* Secure Coding Practices: Implementing strong validation and security controls within the payment gateway to detect and prevent unauthorized modifications.
