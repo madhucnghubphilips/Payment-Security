@@ -17,7 +17,7 @@
 <h1 align="center"><font face="Arial">Payment-Security</font></h1>
 <h3 align="left"><font face="Arial">Payment security protects financial transactions and sensitive data from unauthorized access, fraud, and cyber threats through encryption, authentication, and compliance with security standards. It ensures that payments are processed safely and securely.</font></h3>
 
-<h3 align="left"><font face="Arial">The payment systems involves;</font></h3> 
+<h2 align="left"><font face="Arial">The payment systems involves;</font></h2> 
 Three computer systems are involved whenever a customer makes a card/online purchase online. <br>
 
 **The merchant website** 
@@ -27,7 +27,7 @@ Running a web browser such as Firefox, Chrome or Internet Explorer. <br>
 **The payment service provider (PSP):**
 A Visa Europe listed validated PCI DSS compliant company that receives the cardholder data and submits it to the payment system. <br>
 
-<h3 align="left"><font face="Arial">The key steps involved in payment;</font></h3>
+<h2 align="left"><font face="Arial">The key steps involved in payment;</font></h2>
 
 **Step 1:** CREATE the payment form to collect the customer’s card data and SEND the payment form to the customer's computer. This can be done by the merchant website, or by the PSP website. <br>
 **Step 2:** The customer's computer displays the payment form, and the customer enters their card data and presses the OK button (often called ‘submit’ or ‘pay now’) to confirm the payment, which tells the customer computer to SEND the card data to the PSP or to the merchant website. This step always happens on the customer's computer. <br>
@@ -38,10 +38,8 @@ A Visa Europe listed validated PCI DSS compliant company that receives the cardh
 
 
 
-<h3 align="left"><font face="Arial">Payment Gateway Integration Methods;</font></h3>
-
+<h2 align="left"><font face="Arial">Payment Gateway Integration Methods;</font></h2>
 There are several different ways that applications can integrate payment functionality, and the testing approach will vary depending on which one is used. The most common methods are; <br>
-
 <h3 align="left"><font face="Arial">1) Redirecting the user to a third-party payment gateway.</font></h3> <br>
    <img align="center" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/1%20The%20Redirect%20Process.JPG" /> <br>
 <h3 align="left"><font face="Arial">2) Loading a third-party payment gateway in an IFRAME on the application.</font></h3> <br>
