@@ -50,5 +50,25 @@ There are several different ways that applications can integrate payment functio
    <img align="center" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/4%20The%20JavaScript%20Created%20Form.JPG" /> <br>
 
 
+## <h2 align="left"><font face="Arial">1) Quantity tampering:</font></h2> 
+Quantity tampering in payment security refers to the manipulation of the quantity field in a transaction to alter the number of items or units being purchased. This can result in undercharging or overcharging for a transaction. 
+For example, the quantity should normally be a positive integer, but if the site does not properly validate this then it may be possible to specify a decimal quantity of an item (such as 0.1), or a negative quantity (such as -1). If malicious actor might tamper with the quantity value before a payment is processed, depending on the backend processing, adding negative quantities of an item may result in a negative value, reducing the overall cost of the basket.<br>
+**There are usually multiple ways to modify the contents of the basket that should be tested, such as:** <br>
+Adding a negative quantity of an item.<br>
+Repeatedly removing items until the quantity is negative.<br>
+Updating the quantity to a negative value.<br>
+Some sites may also provide a drop-down menu of valid quantities (such as items that must be bought in packs of 10), and it may be possible to tamper these requests to add other quantities of items.<br>
+
+If the full basket details are passed to the payment gateway (rather than simply passing a total value), it may also be possible to tamper the values at that stage.<br>
+
+Finally, if the application is vulnerable to HTTP parameter pollution then it may be possible to cause unexpected behavior by passing a parameter multiple times, such as:<br>
+
+```python
+POST /api/basket/add
+Host: example.org
+
+item_id=1&quantity=5&quantity=4
+
+```
 
 
