@@ -321,3 +321,42 @@ CVV: 123
 * Compliance: Helps businesses comply with industry regulations, such as PCI DSS, by minimizing the scope of systems that handle sensitive data.
 * Reduced Risk: If tokens are stolen, they are useless to attackers, as they cannot be reverse-engineered to retrieve the original payment information.
 * Flexibility: Tokens can be used across different systems and processes without exposing the original sensitive data.
+
+
+
+
+
+
+
+
+## <h2 align="left"><font face="Arial">12) 3-D Secure (3DS)</font></h2> 
+3-D Secure (3DS) is an authentication protocol designed to enhance the security of online credit and debit card transactions. It adds an additional layer of verification during the payment process, helping to reduce fraud and provide greater protection for both merchants and consumers.<br>
+
+## How 3-D Secure Works:
+
+**Initiation of Payment:**
+* When a customer makes an online purchase and enters their credit or debit card information, the transaction process begins.
+
+**Redirection to Authentication Page:**
+* The 3DS protocol redirects the customer to a page hosted by their card issuer (e.g., Visa, Mastercard, or another financial institution). This is done seamlessly within the checkout process.
+
+**Authentication Process:**
+The card issuer prompts the customer for additional authentication. This might involve:<br>
+* Password/PIN: Entering a password or PIN previously set up with the bank.
+* One-Time Passcode (OTP): Receiving a one-time passcode via SMS or email that needs to be entered to proceed with the transaction.
+* Biometric Verification: Using fingerprint or facial recognition via a banking app on the customer’s smartphone.
+
+**Completion of Payment:**
+* Once the customer successfully authenticates, they are redirected back to the merchant’s site, and the payment is completed.
+* If authentication fails, the transaction is declined, and the customer is typically notified to try again or use a different payment method.
+
+**Transaction Processing:**
+* The payment processor completes the transaction, and the merchant receives confirmation of payment.
+
+**Benefits:**
+* Enhanced Security: Reduces the risk of card-not-present (CNP) fraud.
+* Compliance: Helps merchants comply with regulations like the Payment Services Directive 2 (PSD2) in the European Union, which mandates strong customer authentication.
+* Global Acceptance: Supported by major card networks such as Visa (Verified by Visa), Mastercard (Mastercard SecureCode), and American Express (SafeKey).
+* Reduced Fraud: By adding this layer of authentication, the likelihood of unauthorized transactions is significantly reduced.
+* Liability Shift: In many cases, when 3DS is used, the liability for fraudulent transactions shifts from the merchant to the card issuer, providing more protection for the merchant.
+* Consumer Confidence: Customers feel more secure knowing their transactions are protected by additional security measures.
