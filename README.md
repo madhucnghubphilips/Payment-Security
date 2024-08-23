@@ -172,3 +172,106 @@ Once you have this key, you can then try and create an encrypted request (based 
 * Tamper-Detection Mechanisms: Incorporate tamper detection methods in the payment gateway that can identify and reject altered encrypted data.
 
 
+
+
+
+
+
+## <h2 align="left"><font face="Arial">5) Tampering Secure Hashes</font></h2> 
+Some of payment gateways use a secure hash (or a HMAC) of the transaction details to prevent tampering. The exact details of how this is done will vary between providers (for example, Adyen uses HMAC-SHA256), but it will normally include the details of the transaction and a secret value. For example, a hash may be calculated as:<br>
+
+```python
+$secure_hash = md5($merchant_id . $transaction_id . $items . $total_value . $secret)
+```
+This value is then added to the POST request that is sent to the payment gateway, and verified to ensure that the transaction hasn’t been tampered with.<br>
+
+**Mitigation Strategies** <br>
+* Try to removing the secure hash, as some payment gateways allow insecure transactions unless a specific configuration option has been set.
+* The POST request should contain all of the values required to calculate this hash, other than the secret key. This means that if you know how the hash is calculated (which should be included in the payment gateway’s documentation), then you can attempt to brute-force the secret.
+* Alternatively, if the site is running an off-the-shelf application, there may be a default secret in the configuration files or source code. Finally, if you can find a backup of the site, or otherwise gain access to the configuration files, you may be able to find the secret there.
+* Collision Attacks: Finding two different inputs that produce the same hash.
+Note: If we use strong secret key, collision attack not possible.
+* Length Extension Attacks: Exploiting vulnerabilities in certain hashing algorithms to manipulate data.
+   Note: If we use strong secret key, Length Extension Attacks not possible.
+
+
+
+
+
+## <h2 align="left"><font face="Arial">6) Currency tampering</font></h2> 
+Currency tampering in payment security refers to the unauthorized manipulation of the currency used in a transaction, potentially leading to incorrect charges or fraudulent transactions. This could involve altering the currency code, changing exchange rates, or misrepresenting the currency value during a transaction.<br>
+
+**Mitigation Strategies** <br>
+* Server-Side Validation: Ensure all currency and amount data are validated and processed securely on the server side.
+* Use Trusted Payment Gateways: Rely on well-established payment gateways that enforce currency checks.
+* Audit Trails: Implement logging and monitoring to detect any anomalies in transaction details.
+
+
+
+
+
+
+
+## <h2 align="left"><font face="Arial">7) Time Delayed Requests</font></h2> 
+If the value of items on the site changes over time (for example on a currency exchange), then it may be possible to buy or sell at an old price by intercepting requests using a local proxy and delaying them. In order for this to be exploitable, the price would need to either be included in the request, or linked to something in the request (such as session or transaction ID). The example below shows how this could potentially be exploited on a application that allows users to buy and sell gold<br>
+
+* View the current price of gold on the site.
+* Initiate a buy request for 1oz of gold.
+* Intercept and freeze the request.
+* Wait one minutes to check the price of gold again:
+* If it increases, allow the transaction to complete, and buy the gold for less than it’s current value.
+* If it decreases, drop the request request.
+* If the site allows the user to make payments using cryptocurrencies (which are usually far more volatile), it may be possible to exploit this by obtaining a fixed price in that cryptocurrency, and then waiting to see if the value rises or falls compared to the main currency used by the site.
+
+
+   
+   
+   
+   
+   
+   
+   
+## <h2 align="left"><font face="Arial">8) Discount Codes</font></h2> 
+If the application supports discount codes, then there are various checks that should be carried out <br>
+
+* Are the codes easily guessable (TEST, TEST10, SORRY, SORRY10, company name, etc)?
+* If a code has a number in, can more codes be found by increasing the number?
+* Is there any brute-force protection?
+* Can multiple discount codes be applied at once?
+* Can discount codes be applied multiple times?
+* Can you inject wildcard characters such as % or *?
+* Are discount codes exposed in the HTML source or hidden <input> fields anywhere on the application?
+* In addition to these, the usual vulnerabilities such as SQL injection should be tested for.
+   
+   
+   
+   
+
+## <h2 align="left"><font face="Arial">9) Breaking Payment Flows</font></h2> 
+If the checkout or payment process on an application involves multiple stages (such as adding items to a basket, entering discount codes, entering shipping details, and entering billing information), then it may be possible to cause unintended behavior by performing these steps outside of the expected sequence. For example, you could try<br>
+
+* Modifying the shipping address after the billing details have been entered to reduce shipping costs.
+* Removing items after entering shipping details, to avoid a minimum basket value.
+* Modifying the contents of the basket after applying a discount code (apply discount code through brute force, if rate limit is not implemented).
+* Modifying the contents of a basket after completing the checkout process.
+
+It may also be possible to skip the entire payment process for the transaction. For example, if the application redirects to a third-party payment gateway, the payment flow may be<br>
+
+* The user enters details on the application.
+* The user is redirected to the third-party payment gateway.
+* The user enters their card details.
+* If the payment is successful, they are redirected to success.php on the application.
+* If the payment is unsuccessful, they are redirected to failure.php on the application
+* The application updates its order database, and processes the order if it was successful.
+* Depending on whether the application actually validates that the payment on the gateway was successful, it may be possible to force-browse to the success.php page (possibly including a transaction ID if one is required), which would cause the site to process the order as though the payment was successful. Additionally, it may be possible to make repeated requests to the success.php page to cause an order to be processed multiple times.
+
+
+
+
+
+
+
+## <h2 align="left"><font face="Arial">10) Exploiting Transaction Processing Fees</font></h2> 
+Merchants normally have to pay fees for every transaction processed, which are typically made up of a small fixed fee, and a percentage of the total value. This means that receiving very small payments (such as $0.01) may result in the merchant actually losing money, as the transaction processing fees are greater than the total value of the transaction.<br>
+
+This issue is rarely exploitable on e-commerce sites, as the price of the cheapest item is usually high enough to prevent it. However, if the site allows customers to make payments with arbitrary amounts (such as donations), check that it enforces a sensible minimum value.<br>
