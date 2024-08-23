@@ -74,3 +74,27 @@ item_id=1&quantity=5&quantity=4
 * Security Controls: Implement checks that compare the quantity requested with inventory levels and expected transaction patterns.<br>
 * Audit Logs: Maintain detailed logs of all transactions for post-incident investigation and detection of anomalies.<br>
 
+## <h2 align="left"><font face="Arial">2) Price tampering</font></h2> 
+Price tampering in payment security involves the unauthorized manipulation of the price value during a transaction. This can happen when a user intercepts and alters the data being sent from a client to a server, reducing the price of an item or service before the payment is processed. This type of attack can lead to significant financial losses for merchants.<br>
+
+For example, When adding an item to the basket, the application should only include the item and a quantity, such as the example request below:
+
+```python
+POST /api/basket/add HTTP/1.1
+Host: example.org
+
+item_id=1&quantity=5
+```
+However, in some cases the application may also include the price, meaning that it may be possible to tamper it:
+```python
+POST /api/basket/add HTTP/1.1
+Host: example.org
+
+item_id=1&quantity=5&price=2.00
+```
+Different types of items may have different validation rules, so each type needs to be separately tested. Some applications also allow users to add an optional donation to charity as part of their purchase, and this donation can usually be an arbitrary amount. If this amount is not validated, it may be possible to add a negative donation amount, which would then reduce the total value of the basket. <br>
+
+**Mitigation Strategies** <br>
+* Server-Side Validation: Always validate prices on the server side before processing payments.
+* Use Secure Communication: Implement HTTPS and secure APIs to prevent data interception.
+* Integrity Checks: Use cryptographic techniques to ensure the integrity of the data sent between the client and server.
