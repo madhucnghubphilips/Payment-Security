@@ -9,7 +9,7 @@
 <img align="center" height="400" width="800" src="https://github.com/madhucnghubphilips/Payment-Security/blob/main/resources/Secure%20Payment.png"/>
 <!-- Header Section -->
 <h1 align="center"><font face="Arial">Payment-Security</font></h1>
-<h3 align="left"><font face="Arial">Payment security protects financial transactions and sensitive data from unauthorized access, fraud, and cyber threats through encryption, authentication, and compliance with security standards. It ensures that payments are processed safely and securely.</font></h3>
+<h2 align="left"><font face="Arial">Payment security encompasses the systems, processes, and safeguards designed to protect financial transactions from unauthorized access, data breaches, and fraud. Whether for online or offline businesses, robust payment security is crucial for maintaining customer trust, preventing financial losses, and adhering to relevant regulations and industry standards.</font></h2>
 
 <h2 align="left"><font face="Arial">The payment systems involves;</font></h2> 
 Three computer systems are involved whenever a customer makes a card/online purchase online. <br>
