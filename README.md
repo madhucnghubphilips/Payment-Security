@@ -275,9 +275,36 @@ This issue is rarely exploitable on e-commerce sites, as the price of the cheape
 
 
 
+## <h2 align="left"><font face="Arial">11) Tabnabbing</font></h2> 
+Tabnabbing is a type of phishing attack that targets users who have multiple tabs open in their web browsers. The attack involves manipulating an inactive browser tab to appear as a legitimate website, such as a login page for an online service, in an attempt to trick the user into entering their credentials.<br>
+
+**How Tabnabbing Works**
+* User Opens Multiple Tabs: The user has several tabs open in their web browser, one of which might be an innocent-looking website, such as a blog or a news article.
+
+* Inactivity and Tab Switching: The user becomes inactive on the original tab and switches to other tabs.
+
+* Tab Manipulation: While the user is focused on other tabs, the attacker uses JavaScript to change the content and appearance of the inactive tab. The tab’s title and favicon (the small icon that appears next to the page title) might also be altered to resemble a well-known site, like a banking portal or email service.
+
+* Phishing Attempt: When the user eventually returns to the altered tab, they see what appears to be a legitimate login page. Believing they’ve been logged out or that they need to log in, the user might enter their credentials.
+
+* Credential Theft: The entered credentials are then captured by the attacker, who can use them to gain unauthorized access to the user's account.
+
+**Mitigation Strategies** <br>
+* **Add a Noopener/Noreferrer Attribute**
+* the more tabs you have open (who doesn't multitask on their browser?), the more susceptible you are to tabnabbing. This is because the longer a tab stays inactive, the higher the chance a phisher can strike, swapping the real page with a fake.
+
+* So, how do you prevent this? By adding rel="noopener noreferrer"  to your anchor, like this:
+```python
+<p>Learn to code for free at <a href ="https://www.mywebpage.org/" target="_blank" rel="noopener noreferrer">freeCodeCamp.org!</a><p/>
+```
+* **Keep Browsers and Extensions Updated:** Ensure that your web browser and any extensions or plugins are up to date, as security patches are regularly released to protect against such exploits.
 
 
-## <h2 align="left"><font face="Arial">11) Usage of Tokenization for payment security</font></h2> 
+
+
+
+
+## <h2 align="left"><font face="Arial">12) Usage of Tokenization for payment security</font></h2> 
 Tokenization in payment data is a security technique used to protect sensitive payment information, such as credit card numbers, by replacing it with a unique identifier known as a "token." This token has no exploitable value if breached, as it cannot be used outside the specific context for which it was created. The original payment information is securely stored in a tokenization vault, and only authorized systems can map the token back to the original data.<br>
 
 ## Step-by-Step Example of Tokenization
@@ -325,7 +352,7 @@ CVV: 123
 
 
 
-## <h2 align="left"><font face="Arial">12) 3-D Secure (3DS)</font></h2> 
+## <h2 align="left"><font face="Arial">13) 3-D Secure (3DS)</font></h2> 
 3-D Secure (3DS) is an authentication protocol designed to enhance the security of online credit and debit card transactions. It adds an additional layer of verification during the payment process, helping to reduce fraud and provide greater protection for both merchants and consumers.<br>
 
 ## How 3-D Secure Works:
@@ -360,7 +387,7 @@ The card issuer prompts the customer for additional authentication. This might i
 
 
 
-## <h2 align="left"><font face="Arial">13) Security concerns - ___Embedding a third-party payment gateway in an IFRAME___</font></h2> 
+## <h2 align="left"><font face="Arial">14) Security concerns - ___Embedding a third-party payment gateway in an IFRAME___</font></h2> 
 Loading a third-party payment gateway in an IFRAME within your application can pose several security risks. While using an IFRAME for this purpose is common and can isolate payment processes from your site, it also introduces potential vulnerabilities. Here are the key security issues associated with this approach.<br>
 
 ## Clickjacking Attacks:
@@ -395,7 +422,7 @@ Loading a third-party payment gateway in an IFRAME within your application can p
 
 
 
-## <h2 align="left"><font face="Arial">14) Security concerns - ___Redirecting the user to a third-party payment gateway___</font></h2> 
+## <h2 align="left"><font face="Arial">15) Security concerns - ___Redirecting the user to a third-party payment gateway___</font></h2> 
 Redirecting a user to a third-party payment gateway is a common method for processing payments securely, but it does come with several security concerns. Here are the key security issues associated with this approach:<br>
 
 ## Phishing Attacks:
@@ -431,7 +458,7 @@ Redirecting a user to a third-party payment gateway is a common method for proce
 
 
 
-## <h2 align="left"><font face="Arial">15) Security concerns - ___Direct Post payment gateway method___</font></h2>
+## <h2 align="left"><font face="Arial">16) Security concerns - ___Direct Post payment gateway method___</font></h2>
 The Direct Post payment gateway method involves sending payment details directly from the user’s browser to the payment gateway, bypassing the merchant’s server. While this approach can reduce the merchant’s handling of sensitive data, it still introduces several security concerns:<br>
 
 ## Sensitive Data Exposure
@@ -472,7 +499,7 @@ The Direct Post payment gateway method involves sending payment details directly
 
 
 
-## <h2 align="left"><font face="Arial">16) Security concerns - ___JavaScript-created form payment gateway method___</font></h2>
+## <h2 align="left"><font face="Arial">17) Security concerns - ___JavaScript-created form payment gateway method___</font></h2>
 The JavaScript-created form payment gateway method involves generating and submitting a payment form dynamically using JavaScript. This approach can offer flexibility and control over the payment process but also introduces several security concerns. Here are the key security issues associated with this method:<br>
 
 ## Cross-Site Scripting (XSS)
