@@ -16,10 +16,12 @@ Three computer systems are involved whenever a customer makes a card/online purc
 
 **The merchant website** 
 Contains the product catalogue and shopping cart. Always starts the process to collect the customer’s cardholder data when the customer asks to checkout. <br>
+
 **The customer computer:**
 Running a web browser such as Firefox, Chrome or Internet Explorer. <br>
+
 **The payment service provider (PSP):**
-A Visa Europe listed validated PCI DSS compliant company that receives the cardholder data and submits it to the payment system. <br>
+is a third-party company that facilitates the processing of online payments for businesses. PSPs enable merchants to accept various payment methods, including credit cards, debit cards, bank transfers, digital wallets, and more, through a single platform. They handle the technical and security aspects of payment processing, allowing businesses to focus on their core operations. <br>
 
 <h2 align="left"><font face="Arial">The key steps involved in payment;</font></h2>
 
