@@ -12,7 +12,7 @@
 <h2 align="left"><font face="Arial">Payment security encompasses the systems, processes, and safeguards designed to protect financial transactions from unauthorized access, data breaches, and fraud. Whether for online or offline businesses, robust payment security is crucial for maintaining customer trust, preventing financial losses, and adhering to relevant regulations and industry standards.</font></h2>
 
 <h2 align="left"><font face="Arial">The payment systems involves;</font></h2> 
-Three computer systems are involved whenever a customer makes a card/online purchase online.... <br>
+Three computer systems are involved whenever a customer makes a card/online purchase online. <br>
 
 **The merchant website** 
 Contains the product catalogue and shopping cart. Always starts the process to collect the customer’s cardholder data when the customer asks to checkout. <br>
